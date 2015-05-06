@@ -1,0 +1,30 @@
+h2, p{
+	font-weight: lighter;
+	font-family: 'Helvetica';
+	text-align: center;
+}
+
+.title{
+	width: 30%;
+	margin: 5% 0 0 1%;
+	height: 100px;
+	border-bottom: 1px solid #272727;
+	float: left;
+}
+
+.para{
+	width: 50%;
+	height: 200px;
+	margin-left: 25%;
+	margin-top: 2%;
+	float: left;
+}
+
+h2{
+	float: left;
+	font-size: 82px;
+}
+
+p{
+	font-size: 82px;
+}
