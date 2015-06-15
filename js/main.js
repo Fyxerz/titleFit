@@ -1,7 +1,7 @@
 function init() {
-	heightFit("h2");
-	heightFit("p");
-	lineFit("h3", 2)
+	heightFit("h2")
+	heightFit("p")
+	lineFit("h3", 3)
 }
 
 function heightFit(target) {
@@ -9,37 +9,28 @@ function heightFit(target) {
 		var titleSize = $(this).outerHeight(true)
 		var parentSize = $(this).parent().height()
 
-			// IF NO CSS RESET, MARGIN BOTTOM HAS A DEFAULT
-		$(this).css('margin-bottom', '0');
+		titleFont = $(this).css('font-size').match(/\d+/)
 
-		var titleFont = $(this).css('font-size')
-		titleFont = titleFont.match(/\d+/)
- 
-		if (titleSize > parentSize) {
-			titleFont -= 1
+
+		for (titleFont; titleSize > parentSize; titleFont--) {
 			$(this).css('font-size', titleFont)
-			heightFit(this)
+			titleSize = $(this).outerHeight(true)
 		}
 	})
 }
-
 
 function lineFit(elem, lines) {
 
 	$(elem).each(function(index, el) {
 		var titleSize = $(this).outerHeight(true)
 
-		var titleFont = $(this).css('font-size')
-		titleFont = titleFont.match(/\d+/)
-		console.log(titleFont)
-		if (titleSize > (titleFont * lines)) {
-			titleFont = titleFont - 1
+		titleFont = $(this).css('font-size').match(/\d+/)
 
-			$(this).css('font-size', titleFont);
-			console.log(titleFont)
-			lineFit(this, lines	)
+		for (titleFont; titleSize > (titleFont * lines); titleFont--) {
+			$(this).css('font-size', titleFont)
+			titleSize = $(this).outerHeight(true)
 		}
-	});
+	})
 }
 
 init()
