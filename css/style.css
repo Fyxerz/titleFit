@@ -1,4 +1,4 @@
-h2, p{
+body{
 	font-weight: lighter;
 	font-family: 'Helvetica';
 	text-align: center;
@@ -20,9 +20,18 @@ h2, p{
 	float: left;
 }
 
+.linefit{
+	width: 40%;
+	float: left;
+}
+
 h2{
 	float: left;
 	font-size: 82px;
+}
+
+h3{
+	font-size: 52px;
 }
 
 p{

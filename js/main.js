@@ -1,3 +1,9 @@
+function init() {
+	heightFit("h2");
+	heightFit("p");
+	lineFit("h3", 2)
+}
+
 function heightFit(target) {
 	$(target).each(function() {
 		var titleSize = $(this).outerHeight(true)
@@ -8,13 +14,32 @@ function heightFit(target) {
 
 		var titleFont = $(this).css('font-size')
 		titleFont = titleFont.match(/\d+/)
-		console.log(titleFont)
  
 		if (titleSize > parentSize) {
-			titleFont = titleFont - 1
+			titleFont -= 1
 			$(this).css('font-size', titleFont)
-			console.log($(this).css('font-size'))
 			heightFit(this)
 		}
 	})
 }
+
+
+function lineFit(elem, lines) {
+
+	$(elem).each(function(index, el) {
+		var titleSize = $(this).outerHeight(true)
+
+		var titleFont = $(this).css('font-size')
+		titleFont = titleFont.match(/\d+/)
+		console.log(titleFont)
+		if (titleSize > (titleFont * lines)) {
+			titleFont = titleFont - 1
+
+			$(this).css('font-size', titleFont);
+			console.log(titleFont)
+			lineFit(this, lines	)
+		}
+	});
+}
+
+init()
